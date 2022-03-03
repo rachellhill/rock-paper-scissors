@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width">
     <title>Rock, Paper, Scissors</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Shippori+Antique+B1&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section class="wins-box" id="human-wins">
-      <div>👩</div>
+    <section class="wins-box">
+      <div class="emoji">👩</div>
       <h4>Human</h4>
-      <p class="computer-wins">Wins:</p>
+      <p class="wins" id="human-wins">Wins:</p>
+      <section class="change-game-box hidden">
+        <button class="change-game-button">
+          <label>Change Game</label>
+        </button>
+      </section>
     </section>
     <section class="middle-box">
       <section class="title-box">
@@ -40,12 +46,19 @@
             </button>
           </section>
         </section>
+        <section class="icons hidden">
+          <img class="rock" alt="rock icon" src="./assets/happy-rocks.png">
+          <img class="paper" alt="paper icon" src="./assets/happy-paper.png">
+          <img class="scissors" alt="scissors icon" src="./assets/lines-scissors.png">
+          <img class="alien" alt="alien icon" src="./assets/flat-alien.png">
+          <img class="lizard" alt="lizard icon" src="./assets/flat-lizard.png">
+        </section>
       </section>
     </section>
     <section class="wins-box" id="computer-wins">
-      <div>💻</div>
+      <div class="emoji">💻</div>
       <h4>Computer</h4>
-      <p class="computer-wins">Wins:</p>
+      <p class="wins" id="human-wins">Wins:</p>
     </section>
     <script src="game.js"></script>
     <script src="main.js"></script>
