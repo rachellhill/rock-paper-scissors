@@ -1,6 +1,16 @@
 // var game = new Game();
 var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
+// select the images (svg) - make it a button type on html
+// pull player instantiations into main
+// var new testGame = new Game()
+
+
+// create new instances of game, player class - global variables
+// event listener function
+// on click, playGame function
+// playgame function - where it first runs make user selections, show winner after playing
+// display a count
 
 
 // functions 👇
