@@ -1,10 +1,24 @@
 // var game = new Game();
 var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
-// select the images (svg) - make it a button type on html
+var rock = document.querySelector(".rock");
+var paper = document.querySelector(".paper");
+var scissors = document.querySelector(".scissors");
+var alien = document.querySelector(".alien");
+var lizard = document.querySelector(".lizard");
+
+// select the images (svg) - use event.target to grab them
 // pull player instantiations into main
 // var new testGame = new Game()
 
+// event listeners 👇
+
+classicButton.addEventListener("click", showClassicGame);
+difficultButton.addEventListener("click", showDifficultGame);
+
+
+
+// Need an event listener on the difficult buttons to fire off the playGame functions, which are already attached to the global variable buttons
 
 // create new instances of game, player class - global variables
 // event listener function
@@ -14,35 +28,28 @@ var difficultButton = document.querySelector(".difficult-game-button");
 
 
 // functions 👇
-// make the game playable without going through the DOM
-// compare what is selected to the rules
-// computer's choice and user choice
-// compare the two choices based on RPS rules and return winner or draw
-// generate rock, paper, scissors
+function show(element) {
+  element.classList.remove('hidden');
+};
 
-// generate random choice for Computer
-// iterate through classicChoices and return a choice
+function hide(element) {
+  element.classList.add('hidden');
+};
 
-// compare the choice to the human's choice
-  // if human choice ===
+function showClassicGame() {
+  show(rock);
+  show(paper);
+  show(scissors);
+  hide(classicButton);
+  hide(difficultButton);
+}
 
-// rock paper scissors diagram
-  // scissors beats paper, paper beats rock, rock beats scissors ...
-  // choice is pushed to the middle of the array,
-  // maybe it checks to see what index it is in the array'
-
-  // how do I know what human's choice is?
-
-// maybe should I have a function for a win, draw and loss?
-  // ex: function win()
-  // if
-
-
-
-
-
-// function playGame() {
-//   if () {
-//
-//   }
-// }
+function showDifficultGame() {
+  show(rock);
+  show(paper);
+  show(scissors);
+  show(alien);
+  show(lizard);
+  hide(classicButton);
+  hide(difficultButton);
+}

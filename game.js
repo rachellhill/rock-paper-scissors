@@ -9,7 +9,7 @@
   // can use an array of strings comparing each ✅
 // A way to detect when a game is a draw (no one has won) ✅
 // A way to reset the Game’s board to begin a new game
-  // time reset 
+  // time reset
 
 class Game {
   constructor(gameType) {
@@ -60,27 +60,27 @@ class Game {
   // if user clicks on one of the picture icons, that data is stored here and a new instance of this class is in the playGame function to check the users choice against the computer's randomly generated choice
   checkWinnerClassic() {
     if (this.player1.fighter === this.player2.fighter) {
-      return "it's a draw!"
+      return "It's a draw!";
     } else if (this.winsConditionsClassic.includes(`${this.player1.fighter} > ${this.player2.fighter}`)) {
       this.winner = this.player1.name;
       this.player1.wins++;
-      return `${this.player1.name} won!`
+      return `${this.player1.name} won!`;
     } else {
       this.player2.wins++;
-      return `${this.player2.name} won!`
+      return `${this.player2.name} won!`;
     }
   }
 
   checkWinnerDifficult() {
     if (this.player1.fighter === this.player2.fighter) {
-      return "it's a draw!"
+      return "It's a draw!";
     } else if (this.winsConditionsDifficult.includes(`${this.player1.fighter} > ${this.player2.fighter}`)) {
       this.winner = this.player1.name;
       this.player1.wins++;
-      return `${this.player1.name} won!`
+      return `${this.player1.name} won!`;
     } else {
       this.player2.wins++;
-      return `${this.player2.name} won!`
+      return `${this.player2.name} won!`;
     }
   }
 }
