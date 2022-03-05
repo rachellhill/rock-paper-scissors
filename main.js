@@ -12,10 +12,13 @@ var classicIcons = document.querySelector(".classic-icons");
 var difficultIcons = document.querySelector(".difficult-icons");
 var chooseGame = document.querySelector(".choose-game");
 var chooseFighter = document.querySelector(".choose-fighter");
+var changeGameButton = document.querySelector(".change-game-button");
+var icons = [rock, paper, scissors, alien, lizard];
 
 
 var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
+var computerChoice = gameChoice.player2;
 // var humanChoice;
 // var humanChoice = new Player('Human', '👩');
 // global array
@@ -51,6 +54,8 @@ classicIcons.addEventListener('click', function(event) {
     humanChoice.fighter = 'scissors';
   }
   gameChoice.playSelectedGame();
+  showGameResults()
+  // set time out in here
 });
 // I know what gameType, now we need user to choose their icon within the gameType, take this input and pass it to the game Class
   // potential issue: when a new game is reinstantiated, wins are set back to 0 after they switch to another game.
@@ -62,7 +67,6 @@ classicIcons.addEventListener('click', function(event) {
   // playgame function - where it first runs make user selections, show winner after playing
   // display a count
 difficultIcons.addEventListener('click', function(event) {
-  // gameChoice = new Game(//what parameter goes here)
   if (event.target.className === 'rock') {
     humanChoice.fighter = 'rock';
   } else if (event.target.className === 'paper') {
@@ -74,16 +78,28 @@ difficultIcons.addEventListener('click', function(event) {
   } else if(event.target.className === 'lizard') {
     humanChoice.fighter = 'lizard';
   }
+  //
   gameChoice.playSelectedGame();
+  // set time out in here
 });
 
-// now that I know the winner in above function, I need to be able to show the human's choice and the computer's choice and the return statement in checkwinner functions along with icons 
+// now that I know the winner in above function, I need to be able to show the human's choice and the computer's choice and the return statement in checkwinner functions along with icons
   // I should create a function below that updates the DOM to hide all of the icons, except for the computer and human's choices
   // I should also update the DOM by adding the strings of who won
   // then call it in the two functions above ?
 
 
 // functions 👇
+function showGameResults() {
+
+  show(document.getElementById(`${computerChoice.fighter}`));
+  show(document.getElementById(`${humanChoice.fighter}`));
+}
+
+// hid all of the icons on click in showGameResults
+// show function for human selected choice and one for computer selected choice
+  // tried hiding all of the elements but since the parent element only had the hidden, I couldnt unhide that in the specific fighter's class or ID because it wasnt there to begin with
+
 function show(element) {
   element.classList.remove('hidden');
 };
@@ -93,22 +109,18 @@ function hide(element) {
 };
 
 function showClassicGame() {
-  show(rock);
-  show(paper);
-  show(scissors);
+  show(classicIcons);
   show(chooseFighter);
+  show(changeGameButton);
   hide(chooseGame);
   hide(classicButton);
   hide(difficultButton);
 };
 
 function showDifficultGame() {
-  show(rock);
-  show(paper);
-  show(scissors);
-  show(alien);
-  show(lizard);
+  show(difficultIcons);
   show(chooseFighter);
+  show(changeGameButton);
   hide(chooseGame);
   hide(classicButton);
   hide(difficultButton);
