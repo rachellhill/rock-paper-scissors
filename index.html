@@ -21,13 +21,13 @@
     <section class="middle-box">
       <section class="title-box">
         <h1>Rock, Paper, Scissors</h1>
-        <h2>Choose Game</h2>
+        <h2 class="choose-game">Choose Game</h2>
         <h2 class="choose-fighter hidden">Choose Your Fighter!</h2>
       </section>
       <section class="game-box">
         <section class="game-rules-box">
           <section class="class-rules-box">
-            <button class="classic-game-button">
+            <button class="classic-game-button" id="classic">
               <h3>CLASSIC</h3>
               <p>rock > scissors</p>
               <p>paper > rock</p>
@@ -37,7 +37,7 @@
         </section>
         <section class="game-rules-box">
           <section class="class-rules-box">
-            <button class="difficult-game-button">
+            <button class="difficult-game-button" id="difficult">
               <h3>DIFFICULT</h3>
               <p>rock > scissors & lizard</p>
               <p>paper > rock & alien</p>
@@ -66,8 +66,8 @@
       <h4>Computer</h4>
       <p class="wins" id="human-wins">Wins:</p>
     </section>
+    <script src="player.js"></script>
     <script src="game.js"></script>
     <script src="main.js"></script>
-    <script src="player.js"></script>
   </body>
 </html>
