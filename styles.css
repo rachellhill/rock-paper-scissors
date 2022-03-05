@@ -18,18 +18,43 @@ body {
 h1 {
   font-size: 70px;
   margin: 10px;
+  font-family: 'Fredoka One', cursive;
 }
 
 h2 {
   font-size: 30px;
+  font-family: 'Fredoka One', cursive;
 }
 
 button {
   transition: 100ms;
+  font-family: 'Shippori Antique B1', sans-serif;
+  background-color: #42f59e;
 }
 
 button:hover {
   transform: scale(1.2);
+}
+
+h4 {
+  font-size: 30px;
+  margin: 32px;
+  font-family: 'Fredoka One', cursive;
+}
+
+img {
+  max-width: 30%;
+}
+
+.wins {
+  font-size: 20px;
+  margin: 5px;
+  font-family: 'Shippori Antique B1', sans-serif;
+}
+
+.emoji {
+  font-size: 40px;
+  margin-top: 30px;
 }
 
 .wins-box {
@@ -40,6 +65,11 @@ button:hover {
   align-items: center;
   background-color: #CD81F1;
   padding: 35px;
+  color: white;
+}
+
+.change-game-box {
+  margin-top: 250px;
 }
 
 .middle-box {

@@ -5,26 +5,33 @@
     <meta name="viewport" content="width=device-width">
     <title>Rock, Paper, Scissors</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Shippori+Antique+B1&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section class="wins-box" id="human-wins">
-      <div>👩</div>
+    <section class="wins-box">
+      <div class="emoji">👩</div>
       <h4>Human</h4>
-      <p class="computer-wins">Wins:</p>
+      <p class="wins">Wins:</p>
+      <section class="change-game-box hidden">
+        <button class="change-game-button">
+          <label>Change Game</label>
+        </button>
+      </section>
     </section>
     <section class="middle-box">
       <section class="title-box">
         <h1>Rock, Paper, Scissors</h1>
         <h2>Choose Game</h2>
+        <h2 class="choose-fighter hidden">Choose Your Fighter!</h2>
       </section>
       <section class="game-box">
         <section class="game-rules-box">
           <section class="class-rules-box">
             <button class="classic-game-button">
               <h3>CLASSIC</h3>
-              <p>Rock > Scissors</p>
-              <p>Paper > Rock</p>
-              <p>Scissors > Paper</p>
+              <p>rock > scissors</p>
+              <p>paper > rock</p>
+              <p>scissors > paper</p>
             </button>
           </section>
         </section>
@@ -32,20 +39,32 @@
           <section class="class-rules-box">
             <button class="difficult-game-button">
               <h3>DIFFICULT</h3>
-              <p>Rock > Scissors & Lizard</p>
-              <p>Paper > Rock & Alien</p>
-              <p>Scissors > Paper & Lizard</p>
-              <p>lizard > Paper & Alien</p>
-              <p>Alien > Scissors & Rock</p>
+              <p>rock > scissors & lizard</p>
+              <p>paper > rock & alien</p>
+              <p>scissors > paper & lizard</p>
+              <p>lizard > paper & alien</p>
+              <p>alien > scissors & rock</p>
             </button>
           </section>
+        </section>
+        <section class="classic-icons">
+          <img class="rock hidden" alt="rock icon" src="./assets/happy-rocks.png">
+          <img class="paper hidden" alt="paper icon" src="./assets/happy-paper.png">
+          <img class="scissors hidden" alt="scissors icon" src="./assets/lines-scissors.png">
+        </section>
+        <section class="difficult-icons">
+          <img class="rock hidden" alt="rock icon" src="./assets/happy-rocks.png">
+          <img class="paper hidden" alt="paper icon" src="./assets/happy-paper.png">
+          <img class="scissors hidden" alt="scissors icon" src="./assets/lines-scissors.png">
+          <img class="alien hidden" alt="alien icon" src="./assets/flat-alien.png">
+          <img class="lizard hidden" alt="lizard icon" src="./assets/flat-lizard.png">
         </section>
       </section>
     </section>
     <section class="wins-box" id="computer-wins">
-      <div>💻</div>
+      <div class="emoji">💻</div>
       <h4>Computer</h4>
-      <p class="computer-wins">Wins:</p>
+      <p class="wins" id="human-wins">Wins:</p>
     </section>
     <script src="game.js"></script>
     <script src="main.js"></script>
