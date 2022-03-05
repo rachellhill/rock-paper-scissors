@@ -17,8 +17,8 @@ class Player {
     return this.fighter;
   }
 // will need to change this function to track the human's choice
-  takeTurn(array) {
-    this.fighter = array[Math.floor(Math.random() * array.length)];
+// how do I grab the selection from the eventlistener?
+  takeTurn() {
     return this.fighter;
   }
 }
