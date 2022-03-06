@@ -10,10 +10,17 @@ class Player {
     this.classicChoices = ['rock', 'paper', 'scissors']
     this.difficultChoices = ['rock', 'paper', 'scissors', 'alien', 'lizard'];
     this.wins = 0;
+    this.images = {
+      rock: `<img class="rock" alt="rock icon" src="./assets/happy-rocks.png">`,
+      paper: `<img class="paper" alt="paper icon" src="./assets/happy-paper.png">`,
+      scissors: `<img class="scissors" alt="scissors icon" src="./assets/lines-scissors.png">`,
+      alien: `<img class="alien" id="alien" alt="alien icon" src="./assets/flat-alien.png">`,
+      lizard: `<img class="lizard" id="rock" alt="lizard icon" src="./assets/flat-lizard.png">`
+    }
   }
-// what the user selects?
   getComputerChoice(array) {
     this.fighter = array[Math.floor(Math.random() * array.length)];
+    this.fighterImg = this.images[this.fighter];
     return this.fighter;
   }
 // will need to change this function to track the human's choice

@@ -14,6 +14,7 @@ var chooseGame = document.querySelector(".choose-game");
 var chooseFighter = document.querySelector(".choose-fighter");
 var changeGameButton = document.querySelector(".change-game-button");
 var icons = [rock, paper, scissors, alien, lizard];
+var gameResults = document.querySelector(".game-results");
 
 
 var gameChoice = new Game();
@@ -48,10 +49,13 @@ difficultButton.addEventListener("click", function(event) {
 classicIcons.addEventListener('click', function(event) {
   if (event.target.className === 'rock') {
     humanChoice.fighter = 'rock';
+    humanChoice.fighterImg = `<img class="rock" alt="rock icon" src="./assets/happy-rocks.png">`;
   } else if (event.target.className === 'paper') {
     humanChoice.fighter = 'paper';
+    humanChoice.fighterImg = `<img class="paper" alt="paper icon" src="./assets/happy-paper.png">`;
   } else if (event.target.className === 'scissors') {
     humanChoice.fighter = 'scissors';
+    humanChoice.fighterImg = `<img class="scissors" alt="scissors icon" src="./assets/lines-scissors.png">`;
   }
   gameChoice.playSelectedGame();
   showGameResults()
@@ -67,19 +71,10 @@ classicIcons.addEventListener('click', function(event) {
   // playgame function - where it first runs make user selections, show winner after playing
   // display a count
 difficultIcons.addEventListener('click', function(event) {
-  if (event.target.className === 'rock') {
-    humanChoice.fighter = 'rock';
-  } else if (event.target.className === 'paper') {
-    humanChoice.fighter = 'paper';
-  } else if (event.target.className === 'scissors') {
-    humanChoice.fighter = 'scissors';
-  } else if (event.target.className === 'alien') {
-    humanChoice.fighter = 'alien';
-  } else if(event.target.className === 'lizard') {
-    humanChoice.fighter = 'lizard';
-  }
-  //
-  gameChoice.playSelectedGame();
+  humanChoice.fighter = event.target.className;
+  humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
+  var winner = gameChoice.playSelectedGame();
+  showGameResults(humanChoice, computerChoice, winner)
   // set time out in here
 });
 
@@ -90,11 +85,40 @@ difficultIcons.addEventListener('click', function(event) {
 
 
 // functions 👇
-function showGameResults() {
-
-  show(document.getElementById(`${computerChoice.fighter}`));
-  show(document.getElementById(`${humanChoice.fighter}`));
+function showGameResults(humanChoice, computerChoice, winner) {
+  // need to show winner string here as well
+  // array of objects with name and src as properties
+  // inject the ones that need to show
+  gameResults.innerHTML = '';
+  gameResults.innerHTML += humanChoice.fighterImg;
+  gameResults.innerHTML += computerChoice.fighterImg;  chooseFighter.innerHTML = winner;
+  // set timeout function here
 }
+
+// make a reset function here
+  // after time out, find out what type of game it is and show the appropriate game
+  // gameresults.innerHTML = '';
+  // chooseFighter.innerHTML = chooseFighter
+  // 
+
+// function showGameResults() {
+//   for (var i = 0; i < icons.length -1; i++) {
+//     hide(icons[i]);
+//     // if a fighter is selected, unhide it
+//     // if (icons[i] === humanChoice.fighter) {
+//     //
+//     }
+//     show(document.getElementById(`${humanChoice.fighter}`));
+//     show(document.getElementById(`${computerChoice.fighter}`));
+//   }
+  // in the case of a draw, you want to duplicate that icon on the DOM
+
+//make buttons by iterating over array,
+// when clicked, fighters.innterHTML = empty string
+  // makes a new
+// hide anything that is not matching the users choice
+// loop array -1
+// build a conditional that checks to see if theyre equal and then
 
 // hid all of the icons on click in showGameResults
 // show function for human selected choice and one for computer selected choice
@@ -125,3 +149,10 @@ function showDifficultGame() {
   hide(classicButton);
   hide(difficultButton);
 };
+
+// function hideDifficultGame() {
+//
+// }
+// function hideUnselectedFighters() {
+//   hide()
+// }
