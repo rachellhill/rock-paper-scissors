@@ -85,23 +85,7 @@ function changeGame() {
   hide(difficultIcons);
   hide(chooseFighter);
   hide(changeGameButton);
-}
-// make a reset function here
-  // after time out, find out what type of game it is and show the appropriate game
-  // gameresults.innerHTML = '';
-  // chooseFighter.innerHTML = chooseFighter
-  //
-
-//make buttons by iterating over array,
-// when clicked, fighters.innterHTML = empty string
-  // makes a new
-// hide anything that is not matching the users choice
-// loop array -1
-// build a conditional that checks to see if theyre equal and then
-
-// hid all of the icons on click in showGameResults
-// show function for human selected choice and one for computer selected choice
-  // tried hiding all of the elements but since the parent element only had the hidden, I couldnt unhide that in the specific fighter's class or ID because it wasnt there to begin with
+};
 
 function show(element) {
   element.classList.remove('hidden');
@@ -128,14 +112,3 @@ function showDifficultGame() {
   hide(classicButton);
   hide(difficultButton);
 };
-
-// function hideClassicGame() {
-//   hide(difficultIcons);
-// };
-//
-// function hideDifficultGame() {
-//
-// };
-// function hideUnselectedFighters() {
-//   hide()
-// }
