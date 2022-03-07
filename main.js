@@ -15,7 +15,7 @@ var chooseFighter = document.querySelector(".choose-fighter");
 var changeGameButton = document.querySelector(".change-game-button");
 var icons = [rock, paper, scissors, alien, lizard];
 var gameResults = document.querySelector(".game-results");
-
+var winner;
 
 var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
@@ -44,74 +44,53 @@ difficultButton.addEventListener("click", function(event) {
   // parent element of on event listener, use event.target.id to grab that gameType
 // game.gameType = classicbutton.id or event.target.id
 
-
-// how do I utlize takeTurn function to grab this click and use it in the class methods?
 classicIcons.addEventListener('click', function(event) {
-  if (event.target.className === 'rock') {
-    humanChoice.fighter = 'rock';
-    humanChoice.fighterImg = `<img class="rock" alt="rock icon" src="./assets/happy-rocks.png">`;
-  } else if (event.target.className === 'paper') {
-    humanChoice.fighter = 'paper';
-    humanChoice.fighterImg = `<img class="paper" alt="paper icon" src="./assets/happy-paper.png">`;
-  } else if (event.target.className === 'scissors') {
-    humanChoice.fighter = 'scissors';
-    humanChoice.fighterImg = `<img class="scissors" alt="scissors icon" src="./assets/lines-scissors.png">`;
-  }
-  gameChoice.playSelectedGame();
-  showGameResults()
-  // set time out in here
+  humanChoice.fighter = event.target.className;
+  humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
+  var winner = gameChoice.playSelectedGame();
+  showGameResults(humanChoice, computerChoice, winner);
 });
-// I know what gameType, now we need user to choose their icon within the gameType, take this input and pass it to the game Class
-  // potential issue: when a new game is reinstantiated, wins are set back to 0 after they switch to another game.
-  // need to find a way to save their wins
-  // new game instantiate on load, instead of in classic buttons
 
-// event listener function
-  // on click, playGame function
-  // playgame function - where it first runs make user selections, show winner after playing
-  // display a count
 difficultIcons.addEventListener('click', function(event) {
   humanChoice.fighter = event.target.className;
   humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
   var winner = gameChoice.playSelectedGame();
   showGameResults(humanChoice, computerChoice, winner)
-  // set time out in here
 });
 
-// now that I know the winner in above function, I need to be able to show the human's choice and the computer's choice and the return statement in checkwinner functions along with icons
-  // I should create a function below that updates the DOM to hide all of the icons, except for the computer and human's choices
-  // I should also update the DOM by adding the strings of who won
-  // then call it in the two functions above ?
-
+changeGameButton.addEventListener('click', changeGame);
 
 // functions 👇
 function showGameResults(humanChoice, computerChoice, winner) {
-  // need to show winner string here as well
-  // array of objects with name and src as properties
-  // inject the ones that need to show
   gameResults.innerHTML = '';
   gameResults.innerHTML += humanChoice.fighterImg;
-  gameResults.innerHTML += computerChoice.fighterImg;  chooseFighter.innerHTML = winner;
-  // set timeout function here
+  gameResults.innerHTML += computerChoice.fighterImg;
+  chooseFighter.innerHTML = winner;
+  hide(difficultIcons);
+  hide(classicIcons);
+  setTimeout(playAgain, 2000);
 }
 
+function playAgain() {
+  gameChoice.resetGame();
+  hide(gameResults);
+  chooseFighter.innerHTML = "Choose Your Fighter!";
+}
+
+function changeGame() {
+  show(classicButton);
+  show(difficultButton);
+  show(chooseGame);
+  hide(classicIcons);
+  hide(difficultIcons);
+  hide(chooseFighter);
+  hide(changeGameButton);
+}
 // make a reset function here
   // after time out, find out what type of game it is and show the appropriate game
   // gameresults.innerHTML = '';
   // chooseFighter.innerHTML = chooseFighter
-  // 
-
-// function showGameResults() {
-//   for (var i = 0; i < icons.length -1; i++) {
-//     hide(icons[i]);
-//     // if a fighter is selected, unhide it
-//     // if (icons[i] === humanChoice.fighter) {
-//     //
-//     }
-//     show(document.getElementById(`${humanChoice.fighter}`));
-//     show(document.getElementById(`${computerChoice.fighter}`));
-//   }
-  // in the case of a draw, you want to duplicate that icon on the DOM
+  //
 
 //make buttons by iterating over array,
 // when clicked, fighters.innterHTML = empty string
@@ -150,9 +129,13 @@ function showDifficultGame() {
   hide(difficultButton);
 };
 
+// function hideClassicGame() {
+//   hide(difficultIcons);
+// };
+//
 // function hideDifficultGame() {
 //
-// }
+// };
 // function hideUnselectedFighters() {
 //   hide()
 // }

@@ -88,4 +88,12 @@ class Game {
       return `${this.player2.name} won!`;
     }
   }
+
+  resetGame() {
+    if (this.gameType === 'classic') {
+      showClassicGame();
+    } else if (this.gameType === 'difficult') {
+      showDifficultGame();
+    }
+  }
 }
