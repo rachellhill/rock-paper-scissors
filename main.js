@@ -3,11 +3,6 @@ var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
 var classicGameType = document.querySelector("#classic");
 var difficultGameType = document.querySelector("#difficult");
-var rock = document.querySelector(".rock");
-var paper = document.querySelector(".paper");
-var scissors = document.querySelector(".scissors");
-var alien = document.querySelector(".alien");
-var lizard = document.querySelector(".lizard");
 var classicIcons = document.querySelector(".classic-icons");
 var difficultIcons = document.querySelector(".difficult-icons");
 var chooseGame = document.querySelector(".choose-game");
@@ -17,7 +12,10 @@ var gameResults = document.querySelector(".game-results");
 var humanWins = document.querySelector("#player1-wins");
 var computerWins = document.querySelector("#player2-wins");
 var winner;
-
+var emoji = document.querySelector(".emoji");
+var tokens = ['&#128105;','&#129492;&#8205;&#9792;', '&#129489;', '&#129492;&#8205;&#9794;', '&#128104;', '&#129489;&#8205;&#129457;'];
+var changeTokenButton = document.querySelector(".change-token");
+var changeTokenContainer = document.querySelector(".change-token-container");
 var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
 var computerChoice = gameChoice.player2;
@@ -51,12 +49,13 @@ difficultIcons.addEventListener('click', function(event) {
 });
 
 changeGameButton.addEventListener('click', changeGame);
+changeTokenButton.addEventListener('click', changeToken);
 
 // functions 👇
 function showGameResults(humanChoice, computerChoice, winner) {
   gameResults.innerHTML = '';
-  gameResults.innerHTML += humanChoice.fighterImg;
-  gameResults.innerHTML += computerChoice.fighterImg;
+  gameResults.innerHTML += humanChoice.token + humanChoice.fighterImg;
+  gameResults.innerHTML += computerChoice.fighterImg + computerChoice.token;
   chooseFighter.innerHTML = winner;
   humanWins.innerHTML = `Wins: ${humanChoice.wins}`;
   computerWins.innerHTML = `Wins: ${computerChoice.wins}`;
@@ -66,10 +65,29 @@ function showGameResults(humanChoice, computerChoice, winner) {
   setTimeout(playAgain, 2000);
 }
 
+// humanWins.innerHTML = `Wins: ${humanChoice.wins}`;
+// computerWins.innerHTML = `Wins: ${computerChoice.wins}`;
+
 function playAgain() {
   gameChoice.resetGame();
   hide(gameResults);
   chooseFighter.innerHTML = "Choose Your Fighter!";
+}
+
+function changeToken() {
+  var tokenIndex = changeTokenButton.dataset.tokenIndex;
+  var button = '';
+  tokenIndex++;
+  console.log(tokenIndex)
+  if (tokenIndex === tokens.length) {
+    tokenIndex = 0;
+  }
+  emoji.innerHTML = tokens[tokenIndex];
+  button = `<button class="change-token" data-token-index="${tokenIndex}">Change Token</button>`;
+  changeTokenContainer.innerHTML = button;
+  changeTokenButton = document.querySelector(".change-token");
+  changeTokenButton.addEventListener('click', changeToken);
+  humanChoice.token = tokens[tokenIndex];
 }
 
 function changeGame() {
