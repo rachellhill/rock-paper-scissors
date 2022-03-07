@@ -15,22 +15,15 @@ var chooseFighter = document.querySelector(".choose-fighter");
 var changeGameButton = document.querySelector(".change-game-button");
 var icons = [rock, paper, scissors, alien, lizard];
 var gameResults = document.querySelector(".game-results");
+var humanWins = document.querySelector("#player1-wins");
+var computerWins = document.querySelector("#player2-wins");
 var winner;
 
 var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
 var computerChoice = gameChoice.player2;
-// var humanChoice;
-// var humanChoice = new Player('Human', '👩');
-// global array
-// gameChoice.player1 - using above as my instantiation to access players through here
 
-// select the images (svg) - use event.target to grab them
-// pull player instantiations into main
-// var new testGame = new Game()
 // event listeners 👇
-
-// if classicButton is clicked, I need to show the classic game but also save the gameType as classicButton
 classicButton.addEventListener("click", function(event) {
   gameChoice.gameType = 'classic';
   showClassicGame();
@@ -66,6 +59,9 @@ function showGameResults(humanChoice, computerChoice, winner) {
   gameResults.innerHTML += humanChoice.fighterImg;
   gameResults.innerHTML += computerChoice.fighterImg;
   chooseFighter.innerHTML = winner;
+  humanWins.innerHTML = `Wins: ${humanChoice.wins}`;
+  computerWins.innerHTML = `Wins: ${computerChoice.wins}`;
+  show(gameResults);
   hide(difficultIcons);
   hide(classicIcons);
   setTimeout(playAgain, 2000);

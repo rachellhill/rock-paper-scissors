@@ -1,6 +1,3 @@
-// what makes sense for the class to know about itself
-// class should know what token its holding onto, which one represents the player
-
 class Player {
   constructor(name, token) {
     this.name = name;

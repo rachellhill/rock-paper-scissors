@@ -9,7 +9,7 @@
   // can use an array of strings comparing each ✅
 // A way to detect when a game is a draw (no one has won) ✅
 // A way to reset the Game’s board to begin a new game
-  // time reset
+  // time reset ✅
 
 class Game {
   constructor() {
