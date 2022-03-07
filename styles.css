@@ -44,6 +44,15 @@ h4 {
 
 img {
   max-width: 27%;
+  padding: 10px;
+}
+
+img[data-img="hoverable"] {
+  transition: 100ms;
+}
+
+img[data-img="hoverable"]:hover {
+  transform: scale(1.2);
 }
 
 .classic-icons {
@@ -51,14 +60,12 @@ img {
   flex-direction: row;
   justify-content: center;
   margin-top: 50px;
-  /* padding-bottom: 165px; */ */
 }
 
 .difficult-icons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* margin-top: -320px; */
 }
 
 .game-results {
