@@ -68,10 +68,10 @@ class Game {
     } else if (this.winsConditionsClassic.includes(`${this.player1.fighter} > ${this.player2.fighter}`)) {
       this.winner = this.player1.name;
       this.player1.wins++;
-      return `${this.player1.name} won!`;
+      return `${this.player1.token} ${this.player1.name} won! ${this.player1.token}`;
     } else {
       this.player2.wins++;
-      return `${this.player2.name} won!`;
+      return `${this.player2.token} ${this.player2.name} won! ${this.player2.token}`;
     }
   }
 
