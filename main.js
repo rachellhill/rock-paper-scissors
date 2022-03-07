@@ -13,7 +13,6 @@ var difficultIcons = document.querySelector(".difficult-icons");
 var chooseGame = document.querySelector(".choose-game");
 var chooseFighter = document.querySelector(".choose-fighter");
 var changeGameButton = document.querySelector(".change-game-button");
-var icons = [rock, paper, scissors, alien, lizard];
 var gameResults = document.querySelector(".game-results");
 var humanWins = document.querySelector("#player1-wins");
 var computerWins = document.querySelector("#player2-wins");
