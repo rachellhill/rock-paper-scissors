@@ -12,8 +12,8 @@
       <div class="emoji">👩</div>
       <h4>Human</h4>
       <p class="wins">Wins:</p>
-      <section class="change-game-box hidden">
-        <button class="change-game-button">
+      <section class="change-game-box">
+        <button class="change-game-button hidden">
           <label>Change Game</label>
         </button>
       </section>
@@ -21,13 +21,13 @@
     <section class="middle-box">
       <section class="title-box">
         <h1>Rock, Paper, Scissors</h1>
-        <h2>Choose Game</h2>
+        <h2 class="choose-game">Choose Game</h2>
         <h2 class="choose-fighter hidden">Choose Your Fighter!</h2>
       </section>
       <section class="game-box">
         <section class="game-rules-box">
           <section class="class-rules-box">
-            <button class="classic-game-button">
+            <button class="classic-game-button" id="classic">
               <h3>CLASSIC</h3>
               <p>rock > scissors</p>
               <p>paper > rock</p>
@@ -37,7 +37,7 @@
         </section>
         <section class="game-rules-box">
           <section class="class-rules-box">
-            <button class="difficult-game-button">
+            <button class="difficult-game-button" id="difficult">
               <h3>DIFFICULT</h3>
               <p>rock > scissors & lizard</p>
               <p>paper > rock & alien</p>
@@ -47,17 +47,18 @@
             </button>
           </section>
         </section>
-        <section class="classic-icons">
-          <img class="rock hidden" alt="rock icon" src="./assets/happy-rocks.png">
-          <img class="paper hidden" alt="paper icon" src="./assets/happy-paper.png">
-          <img class="scissors hidden" alt="scissors icon" src="./assets/lines-scissors.png">
+        <section class="classic-icons hidden">
+          <img class="rock" alt="rock icon" src="./assets/happy-rocks.png">
+          <img class="paper" alt="paper icon" src="./assets/happy-paper.png">
+          <img class="scissors" alt="scissors icon" src="./assets/lines-scissors.png">
         </section>
-        <section class="difficult-icons">
-          <img class="rock hidden" alt="rock icon" src="./assets/happy-rocks.png">
-          <img class="paper hidden" alt="paper icon" src="./assets/happy-paper.png">
-          <img class="scissors hidden" alt="scissors icon" src="./assets/lines-scissors.png">
-          <img class="alien hidden" alt="alien icon" src="./assets/flat-alien.png">
-          <img class="lizard hidden" alt="lizard icon" src="./assets/flat-lizard.png">
+        <section class="game-results"></section>
+        <section class="difficult-icons hidden">
+          <img class="rock" id="rock" alt="rock icon" src="./assets/happy-rocks.png">
+          <img class="paper" id="paper" alt="paper icon" src="./assets/happy-paper.png">
+          <img class="scissors" id="scissors" alt="scissors icon" src="./assets/lines-scissors.png">
+          <img class="alien" id="alien" alt="alien icon" src="./assets/flat-alien.png">
+          <img class="lizard" id="rock" alt="lizard icon" src="./assets/flat-lizard.png">
         </section>
       </section>
     </section>
@@ -66,8 +67,8 @@
       <h4>Computer</h4>
       <p class="wins" id="human-wins">Wins:</p>
     </section>
+    <script src="player.js"></script>
     <script src="game.js"></script>
     <script src="main.js"></script>
-    <script src="player.js"></script>
   </body>
 </html>

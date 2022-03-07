@@ -12,11 +12,11 @@
   // time reset
 
 class Game {
-  constructor(gameType) {
+  constructor() {
     this.player1 = new Player('Human', '👩');
     this.player2 = new Player('Computer', '💻');
     this.winner = null;
-    this.gameType = gameType;
+    this.gameType = '';
     this.winsConditionsClassic = [
       'rock > scissors',
       'scissors > paper',
@@ -34,16 +34,19 @@ class Game {
     ];
   }
 
-  selectGame() {
-    // if this.gameType is equal to the global variable of classicChoice, invoke playClassicGame function
-    if (this.gameType === classicButton) {
+  playSelectedGame() {
+    if (this.gameType === 'classic') {
       this.playClassicGame();
       return this.checkWinnerClassic()
-    } else if (this.gameType === difficultButton) {
+    } else if (this.gameType === 'difficult') {
       this.playDifficultGame();
       return this.checkWinnerDifficult();
     }
   }
+  // if they have event.target.id, then run these methods
+  // else, if diff ID, run other methods
+  // compare the ID of the box clicked to the string 'classic'
+
   playClassicGame() {
     this.player1.takeTurn(this.player1.classicChoices);
     // console.log(this.player1.fighter);
@@ -59,6 +62,7 @@ class Game {
   }
   // if user clicks on one of the picture icons, that data is stored here and a new instance of this class is in the playGame function to check the users choice against the computer's randomly generated choice
   checkWinnerClassic() {
+    console.log(this.player1.fighter, this.player2.fighter);
     if (this.player1.fighter === this.player2.fighter) {
       return "It's a draw!";
     } else if (this.winsConditionsClassic.includes(`${this.player1.fighter} > ${this.player2.fighter}`)) {
@@ -72,6 +76,7 @@ class Game {
   }
 
   checkWinnerDifficult() {
+    console.log(this.player1.fighter, this.player2.fighter);
     if (this.player1.fighter === this.player2.fighter) {
       return "It's a draw!";
     } else if (this.winsConditionsDifficult.includes(`${this.player1.fighter} > ${this.player2.fighter}`)) {
@@ -81,6 +86,14 @@ class Game {
     } else {
       this.player2.wins++;
       return `${this.player2.name} won!`;
+    }
+  }
+
+  resetGame() {
+    if (this.gameType === 'classic') {
+      showClassicGame();
+    } else if (this.gameType === 'difficult') {
+      showDifficultGame();
     }
   }
 }
