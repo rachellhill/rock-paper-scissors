@@ -1,4 +1,4 @@
-// Global Variables 👇
+//-----------------------------Global Variables👇-------------------------------
 var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
 var classicGameType = document.querySelector("#classic");
@@ -19,8 +19,7 @@ var changeTokenContainer = document.querySelector(".change-token-container");
 var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
 var computerChoice = gameChoice.player2;
-
-// Event Listeners 👇
+//-----------------------------Event Listeners 👇-------------------------------
 classicButton.addEventListener("click", function(event) {
   gameChoice.gameType = 'classic';
   showClassicGame();
@@ -33,7 +32,7 @@ classicIcons.addEventListener('click', playGame);
 difficultIcons.addEventListener('click', playGame);
 changeGameButton.addEventListener('click', changeGame);
 changeTokenButton.addEventListener('click', changeToken);
-// Functions 👇
+//-----------------------------Functions 👇-------------------------------
 function showGameResults(humanChoice, computerChoice, winner) {
   gameResults.innerHTML = '';
   gameResults.innerHTML += humanChoice.token + humanChoice.fighterImg;
