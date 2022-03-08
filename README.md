@@ -40,4 +40,4 @@ This project consists of 5 primary files: player.js, game.js, main.js, index.htm
 
 # For Instructors:
 
-Project spec and rubring can be found [HERE](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html). 
+Project spec and rubring can be found [HERE](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html).
