@@ -6,9 +6,9 @@ body {
   display: flex;
   flex-direction: row;
   height: 100%;
+  width: 100%;
   margin: 0px;
   overflow: hidden;
-  width: 100%;
 }
 
 h1, h2, h4 {
@@ -18,6 +18,7 @@ h1, h2, h4 {
 h1 {
   font-size: 70px;
   margin: 10px;
+  text-align: center;
 }
 
 h2 {
@@ -43,7 +44,7 @@ button:hover {
 }
 
 img {
-  max-width: 27%;
+  max-width: 24%;
   padding: 10px;
 }
 
@@ -80,13 +81,13 @@ img[data-img="hoverable"]:hover {
 }
 
 .wins {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Shippori Antique B1', sans-serif;
   margin: 5px;
 }
 
 .emoji {
-  font-size: 50px;
+  font-size: 123px;
   margin-top: 30px;
 }
 
@@ -102,7 +103,7 @@ img[data-img="hoverable"]:hover {
 }
 
 .change-game-box {
-  margin-top: 250px;
+  margin-top: 5px;
 }
 
 .middle-box {
@@ -124,7 +125,7 @@ img[data-img="hoverable"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .game-rules-box {
@@ -132,6 +133,10 @@ img[data-img="hoverable"]:hover {
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+}
+
+.classic-game-button {
+  width: 170.73px;
 }
 
 .computer-text {
