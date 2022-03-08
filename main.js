@@ -29,21 +29,8 @@ difficultButton.addEventListener("click", function(event) {
   gameChoice.gameType = 'difficult';
   showDifficultGame();
 });
-// refactor: combine these two eventListeners to use event delegation
-  // parent element of on event listener, use event.target.id to grab that gameType
-// game.gameType = classicbutton.id or event.target.id
-classicIcons.addEventListener('click', function(event) {
-  humanChoice.fighter = event.target.className;
-  humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
-  var winner = gameChoice.playSelectedGame();
-  showGameResults(humanChoice, computerChoice, winner);
-});
-difficultIcons.addEventListener('click', function(event) {
-  humanChoice.fighter = event.target.className;
-  humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
-  var winner = gameChoice.playSelectedGame();
-  showGameResults(humanChoice, computerChoice, winner);
-});
+classicIcons.addEventListener('click', playGame);
+difficultIcons.addEventListener('click', playGame);
 changeGameButton.addEventListener('click', changeGame);
 changeTokenButton.addEventListener('click', changeToken);
 // Functions 👇
@@ -59,6 +46,13 @@ function showGameResults(humanChoice, computerChoice, winner) {
   hide(classicIcons);
   setTimeout(playAgain, 2000);
 };
+
+function playGame() {
+  humanChoice.fighter = event.target.className;
+  humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
+  var winner = gameChoice.playSelectedGame();
+  showGameResults(humanChoice, computerChoice, winner);
+}
 
 function playAgain() {
   gameChoice.resetGame();
