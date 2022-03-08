@@ -1,4 +1,3 @@
-// var game = new Game();
 var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
 var classicGameType = document.querySelector("#classic");
@@ -64,9 +63,6 @@ function showGameResults(humanChoice, computerChoice, winner) {
   hide(classicIcons);
   setTimeout(playAgain, 2000);
 }
-
-// humanWins.innerHTML = `Wins: ${humanChoice.wins}`;
-// computerWins.innerHTML = `Wins: ${computerChoice.wins}`;
 
 function playAgain() {
   gameChoice.resetGame();
