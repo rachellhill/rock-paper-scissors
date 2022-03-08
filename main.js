@@ -44,6 +44,7 @@ function showGameResults(humanChoice, computerChoice, winner) {
   show(gameResults);
   hide(difficultIcons);
   hide(classicIcons);
+  hide(changeGameButton);
   setTimeout(playAgain, 2000);
 };
 
