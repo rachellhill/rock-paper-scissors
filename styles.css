@@ -68,6 +68,7 @@ img[data-img="hoverable"]:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 5px;
 }
 
 .game-results {
@@ -125,14 +126,14 @@ img[data-img="hoverable"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin-top: -20px;
 }
 
 .game-rules-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 .classic-game-button {
