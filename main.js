@@ -1,3 +1,4 @@
+// Global Variables 👇
 var classicButton = document.querySelector(".classic-game-button");
 var difficultButton = document.querySelector(".difficult-game-button");
 var classicGameType = document.querySelector("#classic");
@@ -19,12 +20,11 @@ var gameChoice = new Game();
 var humanChoice = gameChoice.player1;
 var computerChoice = gameChoice.player2;
 
-// event listeners 👇
+// Event Listeners 👇
 classicButton.addEventListener("click", function(event) {
   gameChoice.gameType = 'classic';
   showClassicGame();
 });
-
 difficultButton.addEventListener("click", function(event) {
   gameChoice.gameType = 'difficult';
   showDifficultGame();
@@ -32,25 +32,21 @@ difficultButton.addEventListener("click", function(event) {
 // refactor: combine these two eventListeners to use event delegation
   // parent element of on event listener, use event.target.id to grab that gameType
 // game.gameType = classicbutton.id or event.target.id
-
 classicIcons.addEventListener('click', function(event) {
   humanChoice.fighter = event.target.className;
   humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
   var winner = gameChoice.playSelectedGame();
   showGameResults(humanChoice, computerChoice, winner);
 });
-
 difficultIcons.addEventListener('click', function(event) {
   humanChoice.fighter = event.target.className;
   humanChoice.fighterImg = gameChoice.player1.images[humanChoice.fighter];
   var winner = gameChoice.playSelectedGame();
-  showGameResults(humanChoice, computerChoice, winner)
+  showGameResults(humanChoice, computerChoice, winner);
 });
-
 changeGameButton.addEventListener('click', changeGame);
 changeTokenButton.addEventListener('click', changeToken);
-
-// functions 👇
+// Functions 👇
 function showGameResults(humanChoice, computerChoice, winner) {
   gameResults.innerHTML = '';
   gameResults.innerHTML += humanChoice.token + humanChoice.fighterImg;
@@ -62,29 +58,36 @@ function showGameResults(humanChoice, computerChoice, winner) {
   hide(difficultIcons);
   hide(classicIcons);
   setTimeout(playAgain, 2000);
-}
+};
 
 function playAgain() {
   gameChoice.resetGame();
   hide(gameResults);
   chooseFighter.innerHTML = "Choose Your Fighter!";
-}
+};
 
 function changeToken() {
   var tokenIndex = changeTokenButton.dataset.tokenIndex;
   var button = '';
   tokenIndex++;
-  console.log(tokenIndex)
   if (tokenIndex === tokens.length) {
     tokenIndex = 0;
-  }
+  };
   emoji.innerHTML = tokens[tokenIndex];
   button = `<button class="change-token" data-token-index="${tokenIndex}">Change Token</button>`;
   changeTokenContainer.innerHTML = button;
   changeTokenButton = document.querySelector(".change-token");
   changeTokenButton.addEventListener('click', changeToken);
   humanChoice.token = tokens[tokenIndex];
-}
+};
+
+function show(element) {
+  element.classList.remove('hidden');
+};
+
+function hide(element) {
+  element.classList.add('hidden');
+};
 
 function changeGame() {
   show(classicButton);
@@ -94,14 +97,6 @@ function changeGame() {
   hide(difficultIcons);
   hide(chooseFighter);
   hide(changeGameButton);
-};
-
-function show(element) {
-  element.classList.remove('hidden');
-};
-
-function hide(element) {
-  element.classList.add('hidden');
 };
 
 function showClassicGame() {
